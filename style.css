@@ -16,6 +16,7 @@
 .dark{
      background-color: #4e4e4e04;
      text-emphasis-color: white;
+     font-family: 'Ubuntu Condensed', sans-serif;
     }
 #title{
     font-family: 'Ubuntu Condensed', sans-serif;
@@ -25,4 +26,10 @@
 #explanation{
     font-family: 'Ubuntu Condensed', sans-serif;
     height : 3rem;
+}
+
+#change{
+    font-family: 'Ubuntu Condensed', sans-serif;
+    
+
 }

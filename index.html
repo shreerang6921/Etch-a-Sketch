@@ -4,7 +4,7 @@
         Etch-a-Sketch
     </title>
     <h1 id="title">ETCH-A-SKETCH</h1>
-    <p id="explanation">use cursor of mouse to draw in the given grid.</p>
+    <p id="explanation">double click to start drawing!</p>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet"></head>
 <body>
@@ -13,9 +13,11 @@
     <form>
     <div class="container">
     </div>
-    <button onclick="clearGrid" class = "dark"> Reset
+    <button  class = "dark"> Reset
     </button>
 </form>
+<input type="color" id="myColor" value = "#000000">
+    <button id="change" onclick = "changeColor()" class="BUTTON_LLO">CHANGE COLOR</button>
 <div id="data"><h1 id="name">made by SHREERANG KALE.</h1></div>
 
     <script src="script.js"></script>

@@ -1,4 +1,5 @@
 let grid = document.querySelector(".container");
+let colorPick = document.getElementById("myColor").value;
 
 grid.style.display = "grid";
 
@@ -19,16 +20,34 @@ grid.style.gridTemplateRows = "repeat("+gridSize+",auto)";
 
 gridItem = document.getElementsByClassName("grid-item");
 let cells = [...gridItem];
+
+let mouse;
+
 //trail
 for (let i = 0;i<cells.length;i++){
+    cells[i].addEventListener("dblclick",startPainting);
     cells[i].addEventListener("mouseout",trail);
-    function trail(e){
-        cells[i].style.backgroundColor = "rgb("+e.clientX+","+e.clientY+",0)";
+    cells[i].addEventListener("click",stopPainting);
+    function startPainting(){
+        mouse = "drawing";
     }
+    
+    function trail(e){
+        if (mouse == "drawing"){
+        cells[i].style.backgroundColor = colorPick;
+    }
+}
+function stopPainting(e){
+    mouse = "notDrawing"
+    cells[i].style.backgroundColor = colorPick;
+}
     cells[i].addEventListener("mouseover",currentpos);
     function currentpos(){
+        if (mouse == "drawing"){
         cells[i].style.backgroundColor = "cyan";
+        }
     }
+    
 }
 
 }
@@ -36,14 +55,14 @@ for (let i = 0;i<cells.length;i++){
 let size = prompt("how big grid do you want?");
 makeGrids(size);
 
-//cleargrid 
-function clearGrid(){
-    for(let i = 0; i<cells.length;i++){
-        cells[i].style.backgroundColor = "none";
-    }
-}
+
 let body = document.querySelector("body");
 body.addEventListener("mousemove",function(e){
 body.style.backgroundColor = "rgb("+e.layerX+","+e.layerY+",123)";
 
 })
+
+function changeColor(){
+    colorPick = document.getElementById("myColor").value;
+    console.log(colorPick);
+}
